@@ -1,6 +1,8 @@
 package dev.sgp.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,22 @@ public class EditerCollaborateurController extends HttpServlet {
 		String titreParam = req.getParameter("titre");
 		String nomParam = req.getParameter("nom");
 		String prenomParam = req.getParameter("prenom");
+		
+		List<String> parametres = new ArrayList<>();
+		parametres.add(matriculeParam);
+		parametres.add(titreParam);
+		parametres.add(nomParam);
+		parametres.add(prenomParam);
+		
+		List<String> params = new ArrayList<>();
+		params.add("matricule");
+		params.add("titre");
+		params.add("nom");
+		params.add("prenom");
+		
+		int i = 0;
+		
+		String message = "Les paramètres suivants sont incorrects: ";
 
 		if (matriculeParam != null && titreParam != null && nomParam != null && prenomParam != null) {
 
@@ -51,24 +69,15 @@ public class EditerCollaborateurController extends HttpServlet {
 					+ "Prénom : " + prenomParam);
 
 		} else {
-
-			if (matriculeParam == null && titreParam != null && nomParam != null && prenomParam != null) {
-
-				resp.sendError(400, "Les paramètres suivants sont incorrects: matricule");
-
-			} else if (matriculeParam == null && titreParam == null && nomParam != null && prenomParam != null) {
-
-				resp.sendError(400, "Les paramètres suivants sont incorrects: matricule, titre");
-
-			} else if (matriculeParam == null && titreParam == null && nomParam == null && prenomParam != null) {
-
-				resp.sendError(400, "Les paramètres suivants sont incorrects: matricule, titre, nom");
-
-			} else if (matriculeParam == null && titreParam == null && nomParam == null && prenomParam == null) {
-
-				resp.sendError(400, "Les paramètres suivants sont incorrects: matricule, titre, nom, prenom");
-
+			
+			for (String p : parametres) {
+				if (p == null) {
+					message += params.get(i);
+					i++;
+				}
 			}
+			
+			resp.sendError(400, message);		
 		}
 
 	}
