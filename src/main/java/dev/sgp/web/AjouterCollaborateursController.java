@@ -58,19 +58,10 @@ public class AjouterCollaborateursController extends HttpServlet {
 			
 			collabService.sauvegarderCollaborateur(nouveauCollab);
 
-//			resp.sendRedirect("/WEB-INF/views/collab/listerCollaborateurs.jsp");
 		
-			
-//			resp.setContentType("text/html");
-//
-//			resp.getWriter().write(
-//					"Nom: " + nouveauCollab.getNom() + " " + nouveauCollab.getPrenom() + "<br>"
-//					+ "Adresse: " + nouveauCollab.getAdresse() + "<br>"
-//					+ "Email: " + nouveauCollab.getEmailPro() + "<br>"
-//					+ "Numéro de Sécurité Sociale: " + nouveauCollab.getNumeroDeSecuriteSociale() + "<br>"
-//					+ "Date de Naissance: " + nouveauCollab.getDateDeNaissance() + "<br>"
-//					+ "Matricule: " + nouveauCollab.getMatricule() + "<br>"
-//			);
+			resp.setContentType("text/html");
+			req.setAttribute("collaborateurs", collabService.listerCollaborateurs());
+			req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp").forward(req, resp);
 			
 		} else {
 			

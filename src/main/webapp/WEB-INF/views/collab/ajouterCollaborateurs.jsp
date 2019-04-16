@@ -1,3 +1,4 @@
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,7 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-				    <a class="nav-link" href="listerCollaborateurs.jsp">Collaborateurs</a>
+				    <a class="nav-link" href="lister">Collaborateurs</a>
 				</li>
 			</ul>
 		</div>

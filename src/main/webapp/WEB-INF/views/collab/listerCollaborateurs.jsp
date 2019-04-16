@@ -1,4 +1,5 @@
 <%@page import="java.util.List"%>
+<%@page import="dev.sgp.entite.Collaborateur"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,11 +23,9 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Collaborateurs</a>
+				<li class="nav-item active"><a class="nav-link" href="lister">Collaborateurs</a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Statistiques</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Activités</a>
+				<li class="nav-item"><a class="nav-link" href="stats">Statistiques</a>
 				</li>
 			</ul>
 		</div>
@@ -34,7 +33,7 @@
 	<main>
 	<section class="container-fluid">
 		<div class="container-fluid m-2">
-			<a href="addCollab.html" class="btn btn-primary float-right">Ajouter
+			<a href="nouveau" class="btn btn-primary float-right">Ajouter
 				un nouveau collaborateur</a><br>
 		</div>
 		<h1 class="display-3">Les Collaborateurs</h1>
@@ -81,26 +80,28 @@
 	</section>
 	<section class="container-fluid">
 		<div class="card-deck mt-5 mb-3">
+			<%
+	            List<Collaborateur> listeCollaborateurs = (List<Collaborateur>) request.getAttribute("collaborateurs");
+	            for (Collaborateur collab : listeCollaborateurs) {
+	        %>
 			<div class="card bg-light">
-				<div class="card-header">NOM Prénom</div>
+				<div class="card-header"><%=collab.getNom().toUpperCase() + " "%><%=collab.getPrenom()%></div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-4">
-							<img class="rounded" src="img1.jpg" height="150" width="150">
+							<img class="rounded" src="<%=request.getContextPath()%>/img/img1.jpg" height="150" width="150">
 						</div>
 						<div class="col-lg-8 col-md-12">
 							<div class="row">
 								<div class="col-md-6 card-text">
-									<p>Fonction:</p>
-									<p>Département:</p>
+									<p>Date de Naissance:</p>
 									<p>Email:</p>
-									<p>Téléphone:</p>
+									<p>Matricule:</p>
 								</div>
 								<div class="col-md-6">
-									<p>dsfsdfdsfsdq</p>
-									<p>qsdfdsfqsfdq</p>
-									<p>qsdfdsfqsfdq</p>
-									<p>qsdfdsfqsfdq</p>
+									<p><%=collab.getDateDeNaissance()%></p>
+									<p><%=collab.getEmailPro()%></p>
+									<p><%=collab.getMatricule()%></p>
 								</div>
 							</div>
 						</div>
@@ -110,22 +111,12 @@
 					</div>
 				</div>
 			</div>
+			<%
+	            }
+	        %>
 		</div>
 	</section>
-	</main>
-	<ul>
-		<%
-			List<String> listeNoms = (List<String>) request.getAttribute("listeNoms");
-			for (String nom : listeNoms) {
-		%>
-
-		<li><%=nom%></li>
-
-		<%
-			}
-		%>
-	</ul>
-
+	</main>	
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/bootstrap-4.3.1-dist/js/bootstrap.bundle.js"></script>
 </body>
