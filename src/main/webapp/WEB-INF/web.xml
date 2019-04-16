@@ -1,31 +1,38 @@
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
 	<display-name>sgp</display-name>
+
 	<servlet>
 		<servlet-name>ListerCollaborateursController</servlet-name>
 		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
 	</servlet>
 	<servlet>
-        <servlet-name>AjouterCollaborateursController</servlet-name>
-        <servlet-class>dev.sgp.web.AjouterCollaborateursController</servlet-class>
+        <servlet-name>StatiqtiquesController</servlet-name>
+        <servlet-class>dev.sgp.web.StatistiquesController</servlet-class>
     </servlet>
 	<servlet>
-        <servlet-name>EditerCollaborateurController</servlet-name>
-        <servlet-class>dev.sgp.web.EditerCollaborateurController</servlet-class>
-    </servlet>
+		<servlet-name>AjouterCollaborateursController</servlet-name>
+		<servlet-class>dev.sgp.web.AjouterCollaborateursController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>EditerCollaborateurController</servlet-name>
+		<servlet-class>dev.sgp.web.EditerCollaborateurController</servlet-class>
+	</servlet>
 	<servlet-mapping>
-        <servlet-name>ListerCollaborateursController</servlet-name>
-        <url-pattern>/collaborateurs/lister</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AjouterCollaborateursController</servlet-name>
-        <url-pattern>/collaborateurs/nouveau</url-pattern>
-    </servlet-mapping>
+		<servlet-name>ListerCollaborateursController</servlet-name>
+		<url-pattern>/collaborateurs/lister</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
-        <servlet-name>EditerCollaborateurController</servlet-name>
-        <url-pattern>/collaborateurs/editer</url-pattern>
+		<servlet-name>AjouterCollaborateursController</servlet-name>
+		<url-pattern>/collaborateurs/nouveau</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditerCollaborateurController</servlet-name>
+		<url-pattern>/collaborateurs/editer</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>StatistiquesController</servlet-name>
+        <url-pattern>/collaborateurs/statistiques</url-pattern>
     </servlet-mapping>
 </web-app>
