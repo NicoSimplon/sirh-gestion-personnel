@@ -18,8 +18,8 @@ public class StatistiquesController extends HttpServlet {
 		
 		List<VisiteWeb> listeVisites = null;
 
-		req.setAttribute("collaborateurs", listeVisites);
-		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
+		req.setAttribute("listeVisites", listeVisites);
+		req.getRequestDispatcher("/WEB-INF/views/collab/statistiques.jsp")
 		.forward(req, resp);
 	
 	}

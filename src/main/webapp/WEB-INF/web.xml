@@ -8,7 +8,7 @@
 		<servlet-class>dev.sgp.web.ListerCollaborateursController</servlet-class>
 	</servlet>
 	<servlet>
-        <servlet-name>StatiqtiquesController</servlet-name>
+        <servlet-name>StatistiquesController</servlet-name>
         <servlet-class>dev.sgp.web.StatistiquesController</servlet-class>
     </servlet>
 	<servlet>
