@@ -48,7 +48,7 @@ public class AjouterCollaborateursController extends HttpServlet {
 			nouveauCollab.setNom(nom);
 			nouveauCollab.setPrenom(prenom);
 			nouveauCollab.setAdresse(adresse);
-			nouveauCollab.setEmailPro(prenom.replaceAll("\\W", "") + "." + nom.replaceAll("\\W", "") + "@societe.com");
+			nouveauCollab.setEmailPro(prenom.toLowerCase().replaceAll("\\W", "") + "." + nom.toLowerCase().replaceAll("\\W", "") + "@societe.com");
 			nouveauCollab.setNumeroDeSecuriteSociale(num_secu);
 			nouveauCollab.setDateDeNaissance(naissance);
 			nouveauCollab.setDateHeureCreation(ZonedDateTime.now());
@@ -57,18 +57,20 @@ public class AjouterCollaborateursController extends HttpServlet {
 			nouveauCollab.setActif(true);
 			
 			collabService.sauvegarderCollaborateur(nouveauCollab);
-			
-			
-			resp.setContentType("text/html");
 
-			resp.getWriter().write(
-					"Nom: " + nouveauCollab.getNom() + " " + nouveauCollab.getPrenom() + "<br>"
-					+ "Adresse: " + nouveauCollab.getAdresse() + "<br>"
-					+ "Email: " + nouveauCollab.getEmailPro() + "<br>"
-					+ "Numéro de Sécurité Sociale: " + nouveauCollab.getNumeroDeSecuriteSociale() + "<br>"
-					+ "Date de Naissance: " + nouveauCollab.getDateDeNaissance() + "<br>"
-					+ "Matricule: " + nouveauCollab.getMatricule() + "<br>"
-			);
+//			resp.sendRedirect("/WEB-INF/views/collab/listerCollaborateurs.jsp");
+		
+			
+//			resp.setContentType("text/html");
+//
+//			resp.getWriter().write(
+//					"Nom: " + nouveauCollab.getNom() + " " + nouveauCollab.getPrenom() + "<br>"
+//					+ "Adresse: " + nouveauCollab.getAdresse() + "<br>"
+//					+ "Email: " + nouveauCollab.getEmailPro() + "<br>"
+//					+ "Numéro de Sécurité Sociale: " + nouveauCollab.getNumeroDeSecuriteSociale() + "<br>"
+//					+ "Date de Naissance: " + nouveauCollab.getDateDeNaissance() + "<br>"
+//					+ "Matricule: " + nouveauCollab.getMatricule() + "<br>"
+//			);
 			
 		} else {
 			

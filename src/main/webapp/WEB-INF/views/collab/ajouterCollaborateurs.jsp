@@ -30,7 +30,7 @@
 	<div class="container-fluid">
         <h1 class="display-3">Nouveau Collaborateur</h1>
         <br>
-        <form action="http://localhost:8080/sgp/collaborateurs/nouveau" method="post" class="container was-validated">
+        <form action="/sgp/collaborateurs/nouveau" method="post" class="container was-validated">
             <div class="form-group">
                 <label for="nom">NOM :</label>
                 <input type="text" class="form-control" id="nom" name="nom" placeholder="MARTY" required>
