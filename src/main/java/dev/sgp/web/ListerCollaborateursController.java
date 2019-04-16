@@ -1,7 +1,6 @@
 package dev.sgp.web;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,7 +24,7 @@ public class ListerCollaborateursController extends HttpServlet {
 		
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
 
-		req.setAttribute("listeNoms", Arrays.asList("Nicolas", "Hugo", "Gurpratap Singh Paul le DIEU"));
+		req.setAttribute("listeNoms", collaborateurs);
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
 		.forward(req, resp);
 	
