@@ -82,12 +82,9 @@
 	</section>
 	<section class="container-fluid">
 		<div class="card-deck mt-5 mb-3">
-			<%
-	            List<Collaborateur> listeCollaborateurs = (List<Collaborateur>) request.getAttribute("collaborateurs");
-	            for (Collaborateur collab : listeCollaborateurs) {
-	        %>
+			<c:forEach var="collaborateur" items="${collaborateurs}" >
 			<div class="card bg-light">
-				<div class="card-header"><%=collab.getNom().toUpperCase() + " "%><%=collab.getPrenom()%></div>
+				<div class="card-header">${collaborateur} ${collaborateur}</div>
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-4">
@@ -101,9 +98,9 @@
 									<p>Matricule:</p>
 								</div>
 								<div class="col-md-6">
-									<p><%=collab.getDateDeNaissance()%></p>
-									<p><%=collab.getEmailPro()%></p>
-									<p><%=collab.getMatricule()%></p>
+									<p>${collaborateur.dateDeNaissance}</p>
+									<p>${collaborateur.emailPro}</p>
+									<p>${collaborateur.matricule}</p>
 								</div>
 							</div>
 						</div>
@@ -113,9 +110,7 @@
 					</div>
 				</div>
 			</div>
-			<%
-	            }
-	        %>
+			</c:forEach>
 		</div>
 	</section>
 	</main>	

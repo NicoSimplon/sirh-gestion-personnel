@@ -45,7 +45,7 @@ public class AjouterCollaborateursController extends HttpServlet {
 			int id = collabService.listerCollaborateurs().size() + 1;
 			
 			Collaborateur nouveauCollab = new Collaborateur();
-			nouveauCollab.setNom(nom);
+			nouveauCollab.setNom(nom.toUpperCase());
 			nouveauCollab.setPrenom(prenom);
 			nouveauCollab.setAdresse(adresse);
 			nouveauCollab.setEmailPro(prenom.toLowerCase().replaceAll("\\W", "") + "." + nom.toLowerCase().replaceAll("\\W", "") + "@societe.com");
