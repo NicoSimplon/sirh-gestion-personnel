@@ -37,3 +37,4 @@
 	<div class="container-fluid">
         <h1 class="display-3">Fréquentation web</h1>
         <br>
+    </div>
